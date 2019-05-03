@@ -76,5 +76,7 @@ INSERT INTO subscription
 VALUES("Music", 2);
 INSERT INTO subscription
     (category,subscription_level)
-VALUES("Music", 3);
+VALUES("Music", 3)
+;
+1
 

@@ -11,3 +11,4 @@ CREATE TABLE subscription
     PRIMARY KEY
     (id)
 );
+1
