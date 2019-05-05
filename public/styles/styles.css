@@ -51,7 +51,14 @@ body {
 
 .btn {
   background-color: #6a14cc;
+  border-color: #6a14cc;
 }
+.btn:hover {
+  background-color: #5e10b8;
+  opacity: 0.7;
+  border-color: white;
+}
+
 #categorycard {
   border: none;
 }
