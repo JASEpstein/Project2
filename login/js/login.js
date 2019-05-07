@@ -177,3 +177,29 @@ function login(email, password, callback) {
       callback(null);
     });
   }
+
+
+/* 
+  Modify datetime after user is created  
+*/
+
+  function datetime (datetime, callback) {
+    var mysql = require('mysql');
+
+    var connection = mysql({
+        host: configuration.MYSQL_HOST,
+        user: 'me',
+        password: configuration.MYSQL_PASSWORD,
+        database: 'mydb'
+    });
+
+    connection.connect();
+
+    var query = 'UPDATE FROM users ? WHERE id = ?';
+
+    connection.query(query, [datetime], [id], function(err) {
+        if (err) return callback (err);
+        callback(null);
+    });
+
+  }

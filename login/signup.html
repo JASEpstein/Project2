@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register Page</title>
+    <title>Signup Page</title>
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -16,7 +16,6 @@
         integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./public/styles.css">
-    <script src="js/login.js"></script>
 
 
 </head>
@@ -26,12 +25,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4">
-                <form action="signup.php" method="post">
+                <form action="signup.html" method="post">
                     <h3 class="text-center">Register</h3>
 
+                    <!--
                     <div class="alert alert-danger">
                         <li>Username Required</li>
                     </div>
+                    -->
 
                     <div class="form-group">
                         <label for="username">Username</label>
@@ -54,11 +55,17 @@
                             Up</button>
 
                     </div>
-                    <p class="text-center">Already a member? <a href="login.html">Sign In</a></p>
+                    <p class="text-center">Already a member? <a href="login.html">Login Here</a></p>
                 </form>
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="container">
+            <h5>Footer</h5>
+        </div>
+    </footer>
 
 
 
@@ -69,6 +76,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+        <script src="../login/js/login.js"></script>
+
 </body>
 
 </html>
