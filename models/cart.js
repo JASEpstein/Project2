@@ -5,7 +5,7 @@ module.exports = function Cart(oldcart) {
   this.totalQty = oldcart.totalQty;
   this.totalPrice = oldcart.totalPrice;
 
-  //allows user to add item to the cart
+  //fnction that allows user to add item to the cart
   this.add = function(item, id) {
     //checks if this item or item group already exists in the cart
     //if item is already in the cart then use the old id
@@ -20,14 +20,28 @@ module.exports = function Cart(oldcart) {
     storedItem.price = storedItem.item.price * storedItem.qty;
     //update the total qty and price
     this.totalQty++;
-    this.totalPrice += storedItem.price;
+    this.totalPrice += storedItem.item.price;
   };
 
-  this.generatedArray = function() {
+  //function that allows users to remove an item from the cart
+  this.remove = function(id) {
+    //grabs the qty and price of the items at the item id
+    this.totalItems -= this.items[id].quantity;
+    this.totalPrice -= this.items[id].price;
+    //removes the item at id
+    delete this.items[id];
+  };
+
+  //function to read cart items as an array
+  this.itemsArray = function() {
+    //empty array to hold items
     var arr = [];
+    //loop through and grab id for items
     for (var id in this.items) {
+      //push value of items into the empty array
       arr.push(this.items[id]);
     }
+    //returns the array
     return arr;
   };
 };
