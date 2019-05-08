@@ -50,13 +50,13 @@ VALUES("Analog Games", 3);
 
 INSERT INTO subscription
     (category,subscription_level)
-VALUES("Sports", 1);
+VALUES("Random", 1);
 INSERT INTO subscription
     (category,subscription_level)
-VALUES("Sports", 2);
+VALUES("Random", 2);
 INSERT INTO subscription
     (category,subscription_level)
-VALUES("Sports", 3);
+VALUES("Random", 3);
 
 INSERT INTO subscription
     (category,subscription_level)
