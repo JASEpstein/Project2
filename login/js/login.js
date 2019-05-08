@@ -1,4 +1,34 @@
 /*
+Asking AuthO for tokens for APP
+*/
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://dev-zu-dxu7j.auth0.com/oauth/token',
+  headers: { 'content-type': 'application/json' },
+  body: '{"client_id":"KE5JDDmBDs5fZxA44cprjlEOcTTRELmz","client_secret":"Aww8QFCwHmhJjOUL2xi9gMhpm7V4eVCEqTsmmiIwzdO-Kg_NFRbDzM2Lvuduhq_G","audience":"https://dev-zu-dxu7j.auth0.com/api/v2/","grant_type":"client_credentials"}' };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+/*
+Sending the token to the API
+*/
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'http://path_to_your_api/',
+  headers: { authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qRTNNamhDTkRBMU9VWXdSalkwUlRRMk5qYzVOa0U0TlRWRE1qUTNRMEkxTjBSRk9ETkVSUSJ9.eyJpc3MiOiJodHRwczovL2Rldi16dS1keHU3ai5hdXRoMC5jb20vIiwic3ViIjoiS0U1SkREbUJEczVmWnhBNDRjcHJqbEVPY1RUUkVMbXpAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vZGV2LXp1LWR4dTdqLmF1dGgwLmNvbS9hcGkvdjIvIiwiaWF0IjoxNTU3MjQ4NDc4LCJleHAiOjE1NTczMzQ4NzgsImF6cCI6IktFNUpERG1CRHM1Zlp4QTQ0Y3ByamxFT2NUVFJFTG16IiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.Q-rmnUdPPeiSCq8tSUE1oEcZhrOGzzRPJEKxUrHuhFX87p6lVYFH1XlNXes0J5BS4KnxCPwV8nRWOXRqlfcqnOkiLx8OamtCSMO4de01MFSZQUt3NCCaLPT2fLBE4ffKmPUWlxTs9TOKkSSd02WaRvg1Q8Y8BZh8A4FVmr0xkzOdgqjE16OoDuQ0IznzYpx4l3KXpodlxtvvQqy1SmQshMJP_ADuPvyPPGc_2D-AN8nGOwOn31YEdpb450paslqiEkzommbf85r2PybEpWxYD3ySpUOkC-NO1h9BomAqlHH5dxZK4lZ89j-DFRNQssWPQ_DT3DH7PsdjGI8Vs7RfLw' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+/*
     This script will be executed each time a user attempts to login.
     The two parameters: email and password, are used to validate the authenticity of the user.
     Login script is mandatory. The other scripts, if implemented will be used for sign up, 
@@ -203,3 +233,9 @@ function login(email, password, callback) {
     });
 
   }
+
+  /* 
+  functions to call above functions when submit button is clicked 
+  */
+
+$(document).on("submit", function())
