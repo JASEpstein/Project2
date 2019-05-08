@@ -18,8 +18,8 @@ USE nerdbox_db;
 CREATE TABLE accounts
 (
     id int NOT NULL AUTO_INCREMENT,
-    firstName varchar(30) NOT NULL,
-    lastName varchar(30) NOT NULL,
+    firstName VARCHAR(30) NOT NULL,
+    lastName VARCHAR(30) NOT NULL,
     street VARCHAR(30) NOT NULL,
     city VARCHAR(30) NOT NULL,
     state VARCHAR(2) NOT NULL,
