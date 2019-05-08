@@ -155,6 +155,7 @@ $("#add-account").on("click", function(event) {
       url: "/signup",
       data: newAccount
     }).then(function(data) {
+      console.log(data);
       window.location.href = "/";
     });
   } else {
@@ -187,7 +188,7 @@ $("#update-account").on("click", function(event) {
     zip: $("#zip")
       .val()
       .trim(),
-    email: $("#email")
+    email: $("#emailName")
       .val()
       .trim(),
     phone: $("#phoneNumber")
@@ -249,8 +250,7 @@ $("#confirm-delete").on("click", function(event) {
   console.log(deleteAccount);
   if (
     deleteAccount.accountId.length > 0 &&
-    deleteAccount.accountKey.length > 0 &&
-    deleteAccount.accountId.length > 0
+    deleteAccount.accountKey.length > 0
   ) {
     $.ajax(
       "/accounts/" + deleteAccount.accountId + "/" + deleteAccount.accountKey,

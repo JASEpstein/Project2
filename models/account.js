@@ -1,14 +1,7 @@
-var uuidvl = require("uuid/vl");
 var bcrypt = require("bcryptjs");
 
 module.exports = function(seqeulize, DataTypes) {
   var Accounts = seqeulize.define("Accounts", {
-    uuid: {
-      primaryKey: true,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV1,
-      isUnique: true
-    },
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -51,10 +44,6 @@ module.exports = function(seqeulize, DataTypes) {
         len: [5]
       }
     },
-    balance: {
-      type: DataTypes.DECIMAL(12, 2),
-      defaultValue: 0
-    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -70,6 +59,7 @@ module.exports = function(seqeulize, DataTypes) {
       }
     },
     accountKey: {
+      primarykey: true,
       type: DataTypes.STRING,
       required: true,
       validate: {
@@ -85,14 +75,7 @@ module.exports = function(seqeulize, DataTypes) {
 
   //check if password is valid
   Accounts.prototype.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.account_key);
-  };
-
-  Accounts.associate = function(models) {
-    Accounts.hasMany(models.Items, {
-      foreignKey: "owner_id",
-      onDelete: "cascade"
-    });
+    return bcrypt.compareSync(password, this.accountKey);
   };
   return Accounts;
 };

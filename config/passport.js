@@ -6,8 +6,8 @@ module.exports = function(passport) {
   passport.serializeUser(function(user, done) {
     done(null, user.uuid);
   });
-  passport.deserializeUser(function(uuid, done) {
-    db.Accounts.findById(uuid).then(function(user) {
+  passport.deserializeUser(function(id, done) {
+    db.Accounts.findById(id).then(function(user) {
       if (user) {
         done(null, user.get());
       } else {
@@ -62,6 +62,41 @@ module.exports = function(passport) {
                 });
             }
           });
+        });
+      }
+    )
+  );
+
+  passport.use(
+    "local-login",
+    new LocalStrategy(
+      {
+        usernameField: "email",
+        passwordField: "accountKey",
+        passReqToCallback: "true"
+      },
+      function(req, email, accountKey, done) {
+        db.Accounts.findOne({
+          where: {
+            email: req.body.email
+          }
+        }).then(function(user, err) {
+          if (!user) {
+            console.log("no user found");
+            return done(
+              null,
+              false,
+              req.flash("loginMessage", "No User Found.")
+            );
+          }
+          if (user && !user.validPassword(req.body.accountKey)) {
+            return done(
+              null,
+              false,
+              req.flash("loginMessage", "Oops! Wrong password.")
+            );
+          }
+          return done(null, user);
         });
       }
     )

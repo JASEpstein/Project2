@@ -19,7 +19,7 @@ require("./config/passport")(passport);
 //app.use(express.urlencoded({ extended: false }));
 //app.use(express.json());
 //middleware bodyparser
-app.use(bodyParser.urlencode({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
