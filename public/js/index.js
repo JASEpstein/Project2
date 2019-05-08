@@ -104,7 +104,7 @@ var handleDeleteBtnClick = function() {
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
-$("#addAccount").on("click", function(event) {
+$("#add-account").on("click", function(event) {
   event.preventDefault();
 
   console.log("Button click worked");
@@ -196,7 +196,7 @@ $("#update-account").on("click", function(event) {
     accountKey: $("#password")
       .val()
       .trim(),
-    accountId: $("#accountNumber").attr("data-accountid")
+    accountId: $("#account-number").attr("data-accountid")
   };
 
   $("#err-msg").empty("");
@@ -231,26 +231,40 @@ $("#update-account").on("click", function(event) {
 });
 
 $("#delete-account").on("click", function(event) {
-    event.preventDefault();
-    $("#err-msg").empty();
-    $("#delete-account-modal").modal("show");
+  event.preventDefault();
+  $("#err-msg").empty();
+  $("#delete-account-modal").modal("show");
 });
 
-$("#confirmDelete").on("click", function(event) {
-    var deleteAccount = {
-      accountId = $("#accountId").val().trim(),
-      accountKey = $("#accountKey").val().trim()
-    };
-    console.log(deleteAccount);
-    if (deleteAccount.accountId.length > 0 && deleteAccount.accountKey.length > 0 && deleteAccount.accountId.length > 0 ) {
-      $.ajax("/accounts/" + deleteAccount.accountId + "/" + deleteAccount.accountKey, {
+$("#confirm-delete").on("click", function(event) {
+  event.preventDefault();
+  var deleteAccount = {
+    accountId: $("#accountId")
+      .val()
+      .trim(),
+    accountKey: $("#accountKey")
+      .val()
+      .trim()
+  };
+  console.log(deleteAccount);
+  if (
+    deleteAccount.accountId.length > 0 &&
+    deleteAccount.accountKey.length > 0 &&
+    deleteAccount.accountId.length > 0
+  ) {
+    $.ajax(
+      "/accounts/" + deleteAccount.accountId + "/" + deleteAccount.accountKey,
+      {
         type: "DELETE"
-      }).then(function() {
-        console.log("Account deleted", deleteAccount.accountId);
-        location.reload();
-      });
-    } else {
-      console.log("fill out the entire form");
-      $("#err-msg").empty("").text("fill out the entire form");
-    }
+      }
+    ).then(function() {
+      console.log("Account deleted", deleteAccount.accountId);
+      location.reload();
+    });
+  } else {
+    console.log("fill out the entire form");
+    $("#err-msg")
+      .empty("")
+      .text("fill out the entire form");
+  }
 });
