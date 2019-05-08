@@ -4,13 +4,15 @@ var db = require("../models");
 
 module.exports = function(passport) {
   passport.serializeUser(function(user, done) {
+    console.log("user.uuid", user.uuid);
     done(null, user.uuid);
   });
-  passport.deserializeUser(function(id, done) {
-    db.Accounts.findById(id).then(function(user) {
+  passport.deserializeUser(function(uuid, done) {
+    db.Accounts.findById(uuid).then(function(user) {
       if (user) {
         done(null, user.get());
       } else {
+        console.log("user.errors", user.errors);
         done(user.errors, null);
       }
     });

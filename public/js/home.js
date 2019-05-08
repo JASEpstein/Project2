@@ -1,9 +1,6 @@
 $("#sign-up").on("click", function(event) {
   event.preventDefault();
-
-  $("#sign-up").animateCss("pulse", function() {
-    window.location.href = "/signup";
-  });
+  window.location.href = "/signup";
 });
 
 $("#sign-in-modal").on("click", function(event) {

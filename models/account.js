@@ -1,7 +1,15 @@
+var uuidv1 = require("uuid/v1");
+
 var bcrypt = require("bcryptjs");
 
 module.exports = function(seqeulize, DataTypes) {
   var Accounts = seqeulize.define("Accounts", {
+    uuid: {
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1,
+      isUnique: true
+    },
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -77,5 +85,14 @@ module.exports = function(seqeulize, DataTypes) {
   Accounts.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.accountKey);
   };
+
+  /*
+  if adding new databases, use 
+  Accounts.associate = function(models) {
+    Accounts.hasMany(models.Transactions, {
+      foreignKey: ""
+    });
+  }
+  */
   return Accounts;
 };

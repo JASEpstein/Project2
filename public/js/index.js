@@ -104,6 +104,9 @@ var handleDeleteBtnClick = function() {
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
+//Login Related Code Below
+
+//Add New Account
 $("#add-account").on("click", function(event) {
   event.preventDefault();
 
@@ -151,7 +154,7 @@ $("#add-account").on("click", function(event) {
     newAccount.firstName.length > 0
   ) {
     $.ajax({
-      type: "post",
+      type: "POST",
       url: "/signup",
       data: newAccount
     }).then(function(data) {
@@ -166,6 +169,7 @@ $("#add-account").on("click", function(event) {
   }
 });
 
+//Update Current Account 
 $("#update-account").on("click", function(event) {
   event.preventDefault();
 
@@ -231,12 +235,14 @@ $("#update-account").on("click", function(event) {
   }
 });
 
+//Delete an Account
 $("#delete-account").on("click", function(event) {
   event.preventDefault();
   $("#err-msg").empty();
   $("#delete-account-modal").modal("show");
 });
 
+//Confirm the deletion for the User
 $("#confirm-delete").on("click", function(event) {
   event.preventDefault();
   var deleteAccount = {

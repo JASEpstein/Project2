@@ -12,7 +12,7 @@ module.exports = function(app) {
     if (req.isAuthenticated()) {
       db.Accounts.findOne({
         where: {
-          uuid: req.session.passport.user
+          id: req.session.passport.user
         }
       }).then(function(dbUser) {
         var user = {

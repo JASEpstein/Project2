@@ -2,6 +2,8 @@ require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
+var uuidv1 = require("uuid/v1");
+uuidv1();
 
 var passport = require("passport");
 var flash = require("connect-flash");
@@ -21,8 +23,6 @@ require("./config/passport")(passport);
 //middleware bodyparser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
-
 
 // Handlebars
 app.engine(
@@ -32,6 +32,9 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+
+app.use(express.static("public"));
+
 app.use(cookieParser());
 app.use(
   session({
