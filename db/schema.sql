@@ -3,17 +3,9 @@ USE nerdbox_db;
 
 CREATE TABLE subscription
 (
-    id INTEGER NOT NULL
-    AUTO_INCREMENT,
-    category VARCHAR
-    (20),
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    category VARCHAR(20),
     subscription_level INTEGER NOT NULL,
-    PRIMARY KEY
-    (id)
+    PRIMARY KEY (id)
 );
 1
-
-USE nerdbox_db;
-
-
-
