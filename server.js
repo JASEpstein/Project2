@@ -2,7 +2,7 @@ require("dotenv").config();
 
 var express = require("express");
 var bodyParser = require("body-parser");
-//var exphbs = require("express-handlebars");
+var exphbs = require("express-handlebars");
 var cookieParser = require("cookie-parser");
 
 var db = require("./models");
@@ -20,21 +20,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({ extended: true }));
 // Handlebars
-/*app.engine(
+app.engine(
   "handlebars",
   exphbs({
     defaultLayout: "main"
   })
 );
-app.set("view engine", "handlebars");*/
+app.set("view engine", "handlebars");
 
-/* Routes
-require("./controllers/categorycontroller")(app);*/
+
 require("./controllers/temp")(app);
 
-// Routes
+//Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/htmlRoutes")(app);*/
 
 var syncOptions = { force: true };
 
@@ -46,6 +45,14 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
+  /*db.Category.create({
+    id: 1,
+    name: "Movies",
+    img: "11",
+    description: "blahblah",
+    createdAt: "",
+    updatedAt: ""
+  });*/
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",

@@ -3,8 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     price: DataTypes.DECIMAL(10, 2),
     number_of_items: DataTypes.STRING,
-    premium: DataTypes.STRING,
-    img: DataTypes.STRING
+    premium: DataTypes.STRING
   });
 
   return Subscription;
