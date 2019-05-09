@@ -28,12 +28,11 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-
 require("./controllers/temp")(app);
 
 //Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);*/
+require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: true };
 

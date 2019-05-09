@@ -5,43 +5,35 @@ module.exports = {
     db.Category.bulkCreate([
       {
         name: "Movies",
-        img: "",
         description: "Assortment of Popular Movie-related stuff"
       },
       {
         name: "Anime",
-        img: "",
         description:
           "Assortment of Anime stuff from all genres (Kodomo, Shonen, Shojo, Seinen, Josie, Harem, Reverse Harem, Romance, Horror, Comedy, Ecchi, Mecha, Lolicon, Shotacon, Isekai, Yaoi, Yuri, Drama, Supernatural, Thriller, Slice of Life)"
       },
       {
         name: "Comics",
-        img: "",
         description: "Assortment of Marvel, DC and/or Indie Comics stuff"
       },
       {
         name: "Video Gaming",
-        img: "",
         description: "Assortment of Video Gaming accessories/gear"
       },
       {
         name: "Analog Gaming",
-        img: "",
         description: "Assortment of Analog Gaming stuff"
       },
       {
         name: "TV Shows",
-        img: "",
         description: "Assortment of Popular TV Show-related stuff"
       },
       {
         name: "Music",
-        img: "",
         description: "Assortment of cool Music stuff"
       },
       {
         name: "Random",
-        img: "",
         description: "Assortment of Random pop culture related stuff"
       }
     ]).then(function() {
