@@ -1,4 +1,6 @@
+
 $('.carousel').carousel()
+
 
 // Get references to page elements
 var $exampleText = $("#example-text");
