@@ -15,19 +15,5 @@ CREATE TABLE subscription
 
 USE nerdbox_db;
 
-CREATE TABLE accounts
-(
-    id int NOT NULL AUTO_INCREMENT,
-    firstName VARCHAR(30) NOT NULL,
-    lastName VARCHAR(30) NOT NULL,
-    street VARCHAR(30) NOT NULL,
-    city VARCHAR(30) NOT NULL,
-    state VARCHAR(2) NOT NULL,
-    zip int(5) NOT NULL,
-    balance decimal(12, 2) DEFAULT NULL,
-    email VARCHAR(100) NOT NULL,
-    phone int NOT NULL,
-    accountKey VARCHAR(8) NOT NULL,
-    PRIMARY KEY (id)
-);
+
 
