@@ -1,20 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
   var Category = sequelize.define("Category", {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {}
-    },
-    img: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {}
-    },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {}
-    }
+    name: DataTypes.STRING,
+    img: DataTypes.STRING,
+    description: DataTypes.TEXT
   });
   return Category;
 };

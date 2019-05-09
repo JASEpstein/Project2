@@ -1,6 +1,9 @@
 require("dotenv").config();
+
 var express = require("express");
-var exphbs = require("express-handlebars");
+var bodyParser = require("body-parser");
+//var exphbs = require("express-handlebars");
+var cookieParser = require("cookie-parser");
 
 var db = require("./models");
 
@@ -12,20 +15,28 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.text());
+app.use(bodyParser.urlencoded({ extended: true }));
 // Handlebars
-app.engine(
+/*app.engine(
   "handlebars",
   exphbs({
     defaultLayout: "main"
   })
 );
-app.set("view engine", "handlebars");
+app.set("view engine", "handlebars");*/
+
+/* Routes
+require("./controllers/categorycontroller")(app);*/
+require("./controllers/temp")(app);
 
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-var syncOptions = { force: false };
+var syncOptions = { force: true };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

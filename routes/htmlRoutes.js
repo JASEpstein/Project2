@@ -3,31 +3,21 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Category.findAll({}).then(function(dbExamples) {
+    db.Category.findAll({}).then(function(dbCategories) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        examples: dbCategories
       });
     });
   });
 
-  // Load category page and pass in a category by id
+  // Load example page and pass in an example by id
   app.get("/category/:id", function(req, res) {
     db.Category.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
+      dbCategories
     ) {
       res.render("category", {
-        example: dbExample
-      });
-    });
-  });
-  // Load category page and pass in a category by id
-  app.get("/subscription/:id", function(req, res) {
-    db.Category.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("subscription", {
-        example: dbExample
+        example: dbCategories
       });
     });
   });

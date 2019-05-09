@@ -1,8 +1,8 @@
-var db = require("../models");
+var models = require("../models");
 
 module.exports = {
   createSeedData: function() {
-    db.sequelize.dropAllTables;
+    //db.sequelize.dropAllTables;
     db.sequelize.sync({ force: true }).then(function() {
       db.Category.bulkCreate([
         {
