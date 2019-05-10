@@ -1,5 +1,11 @@
 //npm install dotenv
 require("dotenv").config();
+
+var express = require("express");
+var bodyParser = require("body-parser");
+var exphbs = require("express-handlebars");
+var cookieParser = require("cookie-parser");
+
 //assigns the express module to a variable express.
 //we then initialize the variable and call it "app".
 var express = require("express");
@@ -29,6 +35,25 @@ app.use(
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
 
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.text());
+app.use(bodyParser.urlencoded({ extended: true }));
+// Handlebars
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main"
+  })
+);
+app.set("view engine", "handlebars");
+
+require("./controllers/temp")(app);
+
+//Routes
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
+=======
 //for handlebars
 app.set('views', './views')
 app.engine('handlebars', exphbs({
@@ -49,19 +74,30 @@ var authRoute = require('./routes/auth')(app, passport);
 //load passport strategies
 require('./config/passport/passport.js')(passport, models.user);
 
-var syncOptions = { force: false };
+var syncOptions = { force: true };
 
 if (process.env.NODE_ENV === "test") {
     syncOptions.force = true;
 }
 
 
-//app listening on port 5000.
-db.sequelize.sync({syncOptions}).then(function() {
-    app.listen(PORT, function(err) {
-        if (!err) console.log("Site is live");
-        else console.log(err);
-    });
+// Starting the server, syncing our models ------------------------------------/
+db.sequelize.sync(syncOptions).then(function() {
+  /*db.Category.create({
+    id: 1,
+    name: "Movies",
+    img: "11",
+    description: "blahblah",
+    createdAt: "",
+    updatedAt: ""
+  });*/
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
 });
 
 module.exports = app;
