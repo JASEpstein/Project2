@@ -21,9 +21,11 @@ var mysql2 = require("mysql2");
 var sequelize = require("sequelize");
 
 //For BodyParser
-app.use(bodyParser.urlencoded({
+app.use(
+  bodyParser.urlencoded({
     extended: true
-}));
+  })
+);
 app.use(bodyParser.json());
 
 var PORT = process.env.PORT || 3000;
@@ -32,16 +34,16 @@ var db = require("./models");
 
 // For Passport
 app.use(
-    session({
-        secret: "keyboard cat",
-        resave: true,
-        saveUninitialized: true
-    })
+  session({
+    secret: "keyboard cat",
+    resave: true,
+    saveUninitialized: true
+  })
 ); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -61,34 +63,37 @@ require("./controllers/temp")(app);
 //Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-=======
-//for handlebars
-app.set('views', './views')
-app.engine('handlebars', exphbs({
-    defaultLayout: 'main',
-}));
-app.set('view engine', '.handlebars');
+
+// //for handlebars
+// app.set("views", "./views");
+// app.engine(
+//   "handlebars",
+//   exphbs({
+//     defaultLayout: "main"
+//   })
+// );
+// app.set("view engine", ".handlebars");
 
 //Models
 var models = require("./models");
 
 //Routes
-require('./routes/auth')(app, passport);
-require('./routes/htmlRoutes')(app);
+require("./routes/auth")(app, passport);
+require("./routes/htmlRoutes")(app);
+
+//route for cart controller
+require("./controllers/cartController.js")(app);
 
 //load passport strategies
-require('./config/passport/passport.js')(passport, models.user);
+require("./config/passport/passport.js")(passport, models.user);
 
 var syncOptions = {
-    force: false
+  force: false
 };
 
-
 if (process.env.NODE_ENV === "test") {
-    syncOptions.force = true;
+  syncOptions.force = true;
 }
-
-
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
