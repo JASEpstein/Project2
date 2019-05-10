@@ -64,15 +64,15 @@ require("./controllers/temp")(app);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-//for handlebars
-app.set("views", "./views");
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", ".handlebars");
+// //for handlebars
+// app.set("views", "./views");
+// app.engine(
+//   "handlebars",
+//   exphbs({
+//     defaultLayout: "main"
+//   })
+// );
+// app.set("view engine", ".handlebars");
 
 //Models
 var models = require("./models");

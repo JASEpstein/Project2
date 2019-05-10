@@ -7,14 +7,14 @@ function router(app) {
 //==========================================================================
 // READ :: show cart by user id
 //==========================================================================
-  app.get("/Cart", function(request, response) {
+  app.get("/cart", function(request, response) {
     db.Cart.findAll({
         where: {UserId: request.user.id},
-        include: [db.subscription]
+        include: [db.Subscriptions]
       }).then(function(Subscription) {
-        response.render("cart", {Subscription, user: request.user});
+        response.render("cart", { Subscriptions, user: request.user });
         // response.json(subscription);
-        console.log(subscription);
+        console.log(Subscriptions);
       })
       .catch(function(err) {
         console.log(err.message);
@@ -25,10 +25,10 @@ function router(app) {
 //==========================================================================
 // CREATE :: add new item to cart
 //==========================================================================
-  app.post("/cart/:subscriptionId", function(request, response) {
+  app.post("/cart/:id", function(request, response) {
     db.Cart.create({
       UserId: request.user.id,
-      subscriptionId: request.params.subscriptionId,
+      subscriptionId: request.params.id,
       quantity: request.body.quantity, // TODO
     }).then(function(addedItem) {
       // response.json(addedItem);
@@ -43,7 +43,7 @@ function router(app) {
 //==========================================================================
 // UPDATE :: update item quantity
 //==========================================================================
-   app.put("/cart/:subscriptionId", function(request, response) {
+   app.put("/cart/:id", function(request, response) {
     db.Cart.update({quantity: request.body.quantity},{
         where: {
           UserId: request.user.id,
@@ -64,11 +64,11 @@ function router(app) {
 //==========================================================================
 // DELETE :: delete item from cart
 //==========================================================================
-   app.delete("/cart/:subscriptionId", function(request, response) {
+   app.delete("/cart/:id", function(request, response) {
     db.Cart.destroy({
       where: {
         UserId: request.user.id,
-        id: request.params.subscriptionId,
+        id: request.params.id,
       }
     }).then(function() {
       response.redirect("/cart");
