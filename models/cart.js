@@ -6,13 +6,16 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
-          len: [1, 10]
+          len: [1, 50]
         }
       }
     },
     {
       classMethods: {
         associate: function(models) {
+          Cart.belongsto(models.subscription, {
+            //onDelete: "cascade"
+          });
           Cart.belongsTo(models.User, {
             foreignKey: {
               allowNull: false

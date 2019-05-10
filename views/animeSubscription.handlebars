@@ -1,0 +1,144 @@
+{{! SUBSCRIPTION }}
+<div class="infoSection"></div>
+<div>
+    <h1 class="infoTitle">Subscription Levels</h1>
+    <div class="infoSection"></div>
+</div>
+
+{{!ONE TIME}}
+<div class="row">
+    <div class="col-sm-6 col-md-3">
+        <div class="container bottomContent">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h3 class="my-0 font-weight-normal">One-Time</h3>
+                        <h4>$29.99</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="/styles/assets/product/mediumbox.png" class="lootimg" alt="" />
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>&#10003; 5-10 Items</li>
+                            <li>&#10003; 1 PREMIUM Item Guarenteed!</li>
+                        </ul>
+                        <br />
+                        <div>
+                            <a href="#"class="btn btn-lg btn-block btn-primary" role="button">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!MINI}}
+    <div class="col-sm-6 col-md-3">
+        <div class="container bottomContent">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h3 class="my-0 font-weight-normal">Mini</h3>
+                        <h4>$11.99/mo</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="/styles/assets/product/mediumbox2.png" class="lootimg" alt="" />
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>&#10003; 3-5 Items</li>
+                            <li>&#10003; 1in3 Chance 1 PREMIUM Item</li>
+                            <li>&#10003; FREE Shipping</li>
+                        </ul>
+                        <br />
+                        <div>
+                            <a href="#"class="btn btn-lg btn-block btn-primary" role="button">Button</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!ORIGINAL}}
+    <div class="col-sm-6 col-md-3">
+        <div class="container bottomContent">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h3 class="my-0 font-weight-normal">Original</h3>
+                        <h4>$24.99/mo</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="/styles/assets/product/mediumbox.png" class="lootimg" alt="" />
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>&#10003; 5-10 Items</li>
+                            <li>&#10003; 1 PREMIUM Item Guaranteed!</li>
+                            <li>&#10003; FREE Shipping</li>
+                        </ul>
+                        <br />
+                        <div>
+                            <a href="#"class="btn btn-lg btn-block btn-primary" role="button">Button</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!PREMIUM}}
+    <div class="col-sm-6 col-md-3">
+        <div class="container bottomContent">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h3 class="my-0 font-weight-normal">Premium</h3>
+                        <h4>$34.99/mo</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="/styles/assets/product/largebox.png" class="lootimg" alt="" />
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>&#10003; 15-18 Items</li>
+                            <li>&#10003; 2 PREMIUM Items Guaranteed!</li>
+                            <li>&#10003; FREE Shipping</li>
+                        </ul>
+                        <br />
+                        <div>
+                            <a href="#"class="btn btn-lg btn-block btn-primary" role="button">Button</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{!HANDLEBAR CODE}}
+{{!for some reason I could not get this to render to page}}
+
+{{!-- {{!loop through each subscription}}
+{{#each Subscription}}
+<div class="row">
+    {{!loops through the individual object}}
+    {{each this}}
+    <div class="col-sm-6 col-md-3">
+        <div class="container bottomContent">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h3 class="my-0 font-weight-normal">{{this.name}}</h3>
+                        <h4>${{this.price}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{this.img}}" class="lootimg" alt="" />
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>&#10003; {{this.number_of_items}} Items</li>
+                            <li>&#10003; {{this.premium}}</li>
+                        </ul>
+                        <br />
+                        <div>
+                            <a href="#"class="btn btn-lg btn-block btn-primary" role="button">Button</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/each}} --}}
