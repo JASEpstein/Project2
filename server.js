@@ -15,7 +15,9 @@ var mysql2 = require("mysql2");
 var sequelize = require("sequelize");
 
 //For BodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json());
 
 var PORT = process.env.PORT || 3000;
@@ -24,32 +26,37 @@ var db = require("./models");
 
 // For Passport
 app.use(
-    session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-  ); // session secret
-  app.use(passport.initialize());
-  app.use(passport.session()); // persistent login sessions
+    session({
+        secret: "keyboard cat",
+        resave: true,
+        saveUninitialized: true
+    })
+); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+app.use(express.static('public'));
 
 //for handlebars
 app.set('views', './views')
 app.engine('handlebars', exphbs({
-    extname: '.handlebars'
+    defaultLayout: 'main',
 }));
 app.set('view engine', '.handlebars');
-
-app.get("/", function(req, res) {
-    res.send("Welcome to Passport with Sequelize");
-  });
 
 //Models
 var models = require("./models");
 
 //Routes
-var authRoute = require('./routes/auth')(app, passport);
+require('./routes/auth')(app, passport);
+require('./routes/htmlRoutes')(app);
 
 //load passport strategies
 require('./config/passport/passport.js')(passport, models.user);
 
-var syncOptions = { force: false };
+var syncOptions = {
+    force: false
+};
 
 if (process.env.NODE_ENV === "test") {
     syncOptions.force = true;
@@ -57,8 +64,10 @@ if (process.env.NODE_ENV === "test") {
 
 
 //app listening on port 5000.
-db.sequelize.sync({syncOptions}).then(function() {
-    app.listen(PORT, function(err) {
+db.sequelize.sync({
+    syncOptions
+}).then(function () {
+    app.listen(PORT, function (err) {
         if (!err) console.log("Site is live");
         else console.log(err);
     });

@@ -8,4 +8,3 @@ CREATE TABLE subscription
     subscription_level INTEGER NOT NULL,
     PRIMARY KEY (id)
 );
-1

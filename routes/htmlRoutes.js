@@ -1,5 +1,5 @@
-/*module.exports = function(app) {
-  app.get("/", function(req, res) {
+module.exports = function (app) {
+  app.get("/", function (req, res) {
     if (req.isAuthenticated()) {
       var user = {
         id: req.session.passport.user,
@@ -10,7 +10,7 @@
       res.render("index");
     }
   });
-  app.get("/signup", function(req, res) {
+  app.get("/signup", function (req, res) {
     if (req.isAuthenticated()) {
       res.redirect("/accounts/view");
     } else {
@@ -19,9 +19,9 @@
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // });
 };
 
 // Load index page
