@@ -1,8 +1,6 @@
-$(document).on("load", function () {
-  alert("You fucker");
-});
 
 $('.carousel').carousel()
+
 
 // Get references to page elements
 var $exampleText = $("#example-text");

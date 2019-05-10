@@ -1,334 +1,385 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/../public/styles/styles.css"
-      media="screen"
-      title="no title"
-      charset="utf-8"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Noto+Sans"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css" />
+    <link rel="stylesheet" href="/../public/styles/styles.css" media="screen" title="no title" charset="utf-8" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css' />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
     <script src="/../public/js/index.js"></script>
-    <title>Nerdbox</title>
-  </head>
+    <title>Nerdbox - LootBox</title>
+</head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-        <img
-          src="/../public/styles/assets/logos/logo4.png"
-          class="logoImg"
-          alt=""
-        />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#"
-            >What is Nerdbox?<span class="sr-only">(current)</span></a
-          >
-          <a class="nav-item nav-link" href="#">Features</a>
-          <a class="nav-item nav-link" href="#">Pricing</a>
+<body>
+    <nav class="navbar navbar-light navbar-expand-md justify-content-between">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link pl-0" href="#">Home <span class="sr-only">Home</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="/" class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25"><img
+                    src="/../public/styles/assets/logos/logo4.png" class="logoImg" alt="" /></a>
+            <div class="navbar-collapse collapse dual-nav w-50 order-2">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" data-toggle="modal" href="#signinModal">Log In</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-shopping-cart"
+                                style="font-size: 30px;"></i><span class="badge badge-pill badge-warning">0</span></a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
-    <div
-      id="carouselExampleControls"
-      class="carousel slide"
-      data-ride="carousel"
-      data-interval="2500"
-    >
-      <div class="carousel-inner">
-        <div
-          class="carousel-item active"
-          style="background-image: url('/public/styles/assets/img/gotmedallion.jpg')"
-        >
-          <img class="d-block w-100" alt="First slide" />
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
+        <div class="carousel-inner">
+            <div class="carousel-item active"
+                style="background-image: url('/public/styles/assets/img/gotmedallion.jpg')">
+                <img class="d-block w-100" />
+            </div>
+            <div class="carousel-item" style="background-image: url('/public/styles/assets/img/classicenterprise.jpg')">
+                <img class="d-block w-100" />
+            </div>
+            <div class="carousel-item" style="background-image: url('/public/styles/assets/img/mushroom.jpg')">
+                <img class="d-block w-100" />
+            </div>
+            <div class="carousel-item" style="background-image: url('/public/styles/assets/img/starwarspop.jpg')">
+                <img class="d-block w-100" />
+            </div>
+            <div class="carousel-item" style="background-image: url('/public/styles/assets/img/pokeball.jpg')">
+                <img class="d-block w-100" />
+            </div>
         </div>
-        <div
-          class="carousel-item"
-          style="background-image: url('/public/styles/assets/img/classicenterprise.jpg')"
-        >
-          <img class="d-block w-100" alt="Second slide" />
-        </div>
-        <div
-          class="carousel-item"
-          style="background-image: url('/public/styles/assets/img/mushroom.jpg')"
-        >
-          <img class="d-block w-100" alt="Third slide" />
-        </div>
-        <div
-          class="carousel-item"
-          style="background-image: url('/public/styles/assets/img/starwarspop.jpg')"
-        >
-          <img class="d-block w-100" alt="Third slide" />
-        </div>
-        <div
-          class="carousel-item"
-          style="background-image: url('/public/styles/assets/img/pokeball.jpg')"
-        >
-          <img class="d-block w-100" alt="Third slide" />
-        </div>
-      </div>
     </div>
 
     <div>
-      <h1 class="infoTitle">What is Nerdbox?</h1>
+        <h1 class="infoTitle">What is Nerdbox?</h1>
     </div>
 
     <div class="infoSection"></div>
     <div>
-      <h1 class="infoTitle">Subscription Levels</h1>
-      <div class="infoSection"></div>
+        <h1 class="infoTitle">Subscription Levels</h1>
+        <div class="infoSection"></div>
     </div>
     <div class="container bottomContent">
-      <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header">
-            <h3 class="my-0 font-weight-normal">One-Time</h3>
-            <h4>$29.99</h4>
-          </div>
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/mediumbox.png"
-              class="lootimg"
-              alt=""
-            />
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>&#10003; 5-10 Items</li>
-              <li>&#10003; 1 PREMIUM Item Guarenteed!</li>
-            </ul>
-            <br />
-          </div>
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h3 class="my-0 font-weight-normal">One-Time</h3>
+                    <h4>$29.99</h4>
+                </div>
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/mediumbox.png" class="lootimg" alt="" />
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>&#10003; 5-10 Items</li>
+                        <li>&#10003; 1 PREMIUM Item Guarenteed!</li>
+                    </ul>
+                    <br />
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        Get started
+                    </button>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h3 class="my-0 font-weight-normal">Mini</h3>
+                    <h4>$11.99/mo</h4>
+                </div>
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/mediumbox2.png" class="lootimg" alt="" />
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>&#10003; 3-5 Items</li>
+                        <li>&#10003; 1in3 Chance 1 PREMIUM Item</li>
+                        <li>&#10003; FREE Shipping</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        Get started
+                    </button>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h3 class="my-0 font-weight-normal">Original</h3>
+                    <h4>$24.99/mo</h4>
+                </div>
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/mediumbox.png" class="lootimg" alt="" />
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>&#10003; 5-10 Items</li>
+                        <li>&#10003; 1 PREMIUM Item Guaranteed!</li>
+                        <li>&#10003; FREE Shipping</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        Get started
+                    </button>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h3 class="my-0 font-weight-normal">Premium</h3>
+                    <h4>$34.99/mo</h4>
+                </div>
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/largebox.png" class="lootimg" alt="" />
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>&#10003; 15-18 Items</li>
+                        <li>&#10003; 2 PREMIUM Items Guaranteed!</li>
+                        <li>&#10003; FREE Shipping</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        Get started
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header">
-            <h3 class="my-0 font-weight-normal">Mini</h3>
-            <h4>$11.99/mo</h4>
-          </div>
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/mediumbox2.png"
-              class="lootimg"
-              alt=""
-            />
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>&#10003; 3-5 Items</li>
-              <li>&#10003; 1in3 Chance 1 PREMIUM Item</li>
-              <li>&#10003; FREE Shipping</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header">
-            <h3 class="my-0 font-weight-normal">Original</h3>
-            <h4>$24.99/mo</h4>
-          </div>
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/mediumbox.png"
-              class="lootimg"
-              alt=""
-            />
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>&#10003; 5-10 Items</li>
-              <li>&#10003; 1 PREMIUM Item Guaranteed!</li>
-              <li>&#10003; FREE Shipping</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header">
-            <h3 class="my-0 font-weight-normal">Premium</h3>
-            <h4>$34.99/mo</h4>
-          </div>
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/largebox.png"
-              class="lootimg"
-              alt=""
-            />
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>&#10003; 15-18 Items</li>
-              <li>&#10003; 2 PREMIUM Items Guaranteed!</li>
-              <li>&#10003; FREE Shipping</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
     <div>
-      <h1 class="infoTitle">Categories</h1>
-      <div class="infoSection"></div>
+        <h1 class="infoTitle">Categories</h1>
+        <div class="infoSection"></div>
     </div>
     <div class="container bottomContent ">
-      <div class="card-deck mb-3 text-center">
-        <div id="categorycard" class="card mb-4 ">
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/mediumbox.png"
-              class="lootimg"
-              alt=""
-            />
-            <button type="button" class="btn btn-lg btn-block btn-primary">
-              Movies
-            </button>
-          </div>
-        </div>
-        <div id="categorycard" class="card mb-4">
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/mediumbox2.png"
-              class="lootimg"
-              alt=""
-            />
+        <div class="card-deck mb-3 text-center">
+            <div id="categorycard" class="card mb-4 ">
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/mediumbox.png" class="lootimg" alt="" />
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        Movies
+                    </button>
+                </div>
+            </div>
+            <div id="categorycard" class="card mb-4">
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/mediumbox2.png" class="lootimg" alt="" />
 
-            <button type="button" class="btn btn-lg btn-block btn-primary">
-              Anime
-            </button>
-          </div>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        Anime
+                    </button>
+                </div>
+            </div>
+            <div id="categorycard" class="card mb-4">
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/mediumbox.png" class="lootimg" alt="" />
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        Comics
+                    </button>
+                </div>
+            </div>
+            <div id="categorycard" class="card mb-4">
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/largebox.png" class="lootimg" alt="" />
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        Video Games
+                    </button>
+                </div>
+            </div>
         </div>
-        <div id="categorycard" class="card mb-4">
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/mediumbox.png"
-              class="lootimg"
-              alt=""
-            />
-            <button type="button" class="btn btn-lg btn-block btn-primary">
-              Comics
-            </button>
-          </div>
+        <div class="row card-deck mb-3 text-center">
+            <div id="categorycard" class="card mb-4">
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/mediumbox.png" class="lootimg" alt="" />
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        TV Shows
+                    </button>
+                </div>
+            </div>
+            <div id="categorycard" class="card mb-4">
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/mediumbox2.png" class="lootimg" alt="" />
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        Music
+                    </button>
+                </div>
+            </div>
+            <div id="categorycard" class="card mb-4">
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/largebox.png" class="lootimg" alt="" />
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        Analog Games
+                    </button>
+                </div>
+            </div>
+            <div id="categorycard" class="card mb-4">
+                <div class="card-body">
+                    <img src="/../public/styles/assets/product/mediumbox.png" class="lootimg" alt="" />
+                    <button type="button" class="btn btn-lg btn-block btn-primary">
+                        Random
+                    </button>
+                </div>
+            </div>
         </div>
-        <div id="categorycard" class="card mb-4">
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/largebox.png"
-              class="lootimg"
-              alt=""
-            />
-            <button type="button" class="btn btn-lg btn-block btn-primary">
-              Video Games
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="row card-deck mb-3 text-center">
-        <div id="categorycard" class="card mb-4">
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/mediumbox.png"
-              class="lootimg"
-              alt=""
-            />
-            <button type="button" class="btn btn-lg btn-block btn-primary">
-              TV Shows
-            </button>
-          </div>
-        </div>
-        <div id="categorycard" class="card mb-4">
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/mediumbox2.png"
-              class="lootimg"
-              alt=""
-            />
-            <button type="button" class="btn btn-lg btn-block btn-primary">
-              Music
-            </button>
-          </div>
-        </div>
-        <div id="categorycard" class="card mb-4">
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/largebox.png"
-              class="lootimg"
-              alt=""
-            />
-            <button type="button" class="btn btn-lg btn-block btn-primary">
-              Analog Games
-            </button>
-          </div>
-        </div>
-        <div id="categorycard" class="card mb-4">
-          <div class="card-body">
-            <img
-              src="/../public/styles/assets/product/mediumbox.png"
-              class="lootimg"
-              alt=""
-            />
-            <button type="button" class="btn btn-lg btn-block btn-primary">
-              Random
-            </button>
-          </div>
-        </div>
-      </div>
 
-      <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-          <div class="col-12 col-md">
-            <img
-              class="mb-2"
-              src="/docs/4.3/assets/brand/bootstrap-solid.svg"
-              alt=""
-              width="24"
-              height="24"
-            />
-            <small class="d-block mb-3 text-muted">© 2017-2019</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Cool stuff</a></li>
-              <li><a class="text-muted" href="#">Random feature</a></li>
-              <li><a class="text-muted" href="#">Team feature</a></li>
-              <li><a class="text-muted" href="#">Stuff for developers</a></li>
-              <li><a class="text-muted" href="#">Another one</a></li>
-              <li><a class="text-muted" href="#">Last time</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Resource</a></li>
-              <li><a class="text-muted" href="#">Resource name</a></li>
-              <li><a class="text-muted" href="#">Another resource</a></li>
-              <li><a class="text-muted" href="#">Final resource</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Team</a></li>
-              <li><a class="text-muted" href="#">Locations</a></li>
-              <li><a class="text-muted" href="#">Privacy</a></li>
-              <li><a class="text-muted" href="#">Terms</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <img class="mb-2" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24" />
+                    <small class="d-block mb-3 text-muted">© 2017-2019</small>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Features</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Cool stuff</a></li>
+                        <li><a class="text-muted" href="#">Random feature</a></li>
+                        <li><a class="text-muted" href="#">Team feature</a></li>
+                        <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                        <li><a class="text-muted" href="#">Another one</a></li>
+                        <li><a class="text-muted" href="#">Last time</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Resource</a></li>
+                        <li><a class="text-muted" href="#">Resource name</a></li>
+                        <li><a class="text-muted" href="#">Another resource</a></li>
+                        <li><a class="text-muted" href="#">Final resource</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>About</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Team</a></li>
+                        <li><a class="text-muted" href="#">Locations</a></li>
+                        <li><a class="text-muted" href="#">Privacy</a></li>
+                        <li><a class="text-muted" href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     </div>
-  </body>
+
+    <!-- Login/Signup Modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog px-3 cascading-modal" role="document">
+            <!--Content-->
+
+            <div class="modal-content">
+                <div class="modal-header mb-4">
+                    <img class="mx-auto" src="/../public/styles/assets/logos/logo1.png" alt="nerdbox logo"
+                        style="height: 50px; width: 55px;">
+                </div>
+                <!--Modal cascading tabs-->
+                <div class="modal-c-tabs">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs md-tabs tabs-2 nav-justified darken-3" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i
+                                    class="fas fa-user mr-1"></i>
+                                Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i
+                                    class="fas fa-user-plus mr-1"></i>
+                                Register</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panels -->
+                    <div class="tab-content">
+                        <!--Panel 7-->
+                        <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+
+                            <!--Body-->
+                            <div class="modal-body mb-1">
+                                <div class="md-form form-sm mb-4">
+                                    <input type="email" id="modalLRInput10"
+                                        class="form-control form-control-sm validate" placeholder="Email Address">
+
+                                </div>
+
+                                <div class="md-form form-sm mb-2">
+                                    <input type="password" id="modalLRInput11"
+                                        class="form-control form-control-sm validate" placeholder="Password">
+
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
+                                </div>
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-center text-md-right mt-1">
+                                    <p>Not a member? <a href="#panel8" class="blue-text">Sign Up</a></p>
+                                    <p><a href="#" class="blue-text">Forgot Password?</a></p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!--/.Panel 1-->
+
+                        <!--Panel 8-->
+                        <div class="tab-pane fade" id="panel2" role="tabpanel">
+
+                            <!--Body-->
+                            <div class="modal-body">
+                                <div class="md-form form-sm my-3">
+                                    <input type="email" id="modalLRInput12"
+                                        class="form-control form-control-sm validate" placeholder="Email Address">
+
+                                </div>
+
+                                <div class="md-form form-sm mt-4 mb-3">
+                                    <input type="password" id="modalLRInput13"
+                                        class="form-control form-control-sm validate" placeholder="Enter a password">
+
+                                </div>
+
+                                <div class="md-form form-sm my-3">
+                                    <input type="password" id="modalLRInput14"
+                                        class="form-control form-control-sm validate" placeholder="Confirm Password">
+                                </div>
+
+                                <div class="text-center form-sm mt-2">
+                                    <a href="#panel2" class="btn btn-info">Sign up <i
+                                            class="fas fa-sign-in ml-1"></i></a>
+                                </div>
+
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-right">
+                                    <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a>
+                                    </p>
+                                </div>
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto"
+                                    data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        <!--/.Panel 8-->
+                    </div>
+
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
+
+</body>
+
 </html>
