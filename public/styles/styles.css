@@ -9,9 +9,12 @@ body {
 
 .navbar-light .nav-item.active .nav-link,
 .navbar-light .nav-item:focus .nav-link,
-.navbar-light .nav-item:hover .nav-link {
+.navbar-light .nav-item:hover .nav-link,
+.list-group .list-group-item .list-group-item-action.active {
   color: #6a14cc;
 }
+
+
 
 #navCartIcon {
   color: #ffffff;
@@ -113,4 +116,8 @@ form p {
 
 .logout {
   color: red;
+}
+
+.profileSettingsPage .form-control {
+  background-color: #ffffff;
 }
