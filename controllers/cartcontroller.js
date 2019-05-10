@@ -7,12 +7,12 @@ function router(app) {
 //==========================================================================
 // READ :: show cart by user id
 //==========================================================================
-  app.get("/cart", function(request, response) {
+  app.get("/Cart", function(request, response) {
     db.Cart.findAll({
         where: {UserId: request.user.id},
         include: [db.subscription]
-      }).then(function(subscription) {
-        response.render("cart", {subscription, user: request.user});
+      }).then(function(Subscription) {
+        response.render("cart", {Subscription, user: request.user});
         // response.json(subscription);
         console.log(subscription);
       })

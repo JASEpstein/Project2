@@ -1,3 +1,8 @@
-INSERT INTO nerdbox_db.Cart (name, price, quantity, CategoryId) 
+INSERT INTO nerdbox_db.Cart (UserId, SubscriptionId, quantity) 
+VALUES (1, 1, 2);
 
-VALUES ("Mini", 11.99, 1, "1"),
+INSERT INTO nerdbox_db.Cart (UserId, SubscriptionId, quantity) 
+VALUES (2, 3, 3);
+
+INSERT INTO nerdbox_db.Cart (UserId, SubscriptionId, quantity) 
+VALUES (3, 5, 3);
