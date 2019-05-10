@@ -1,4 +1,32 @@
+
+module.exports = function (app) {
+  app.get("/", function (req, res) {
+    if (req.isAuthenticated()) {
+      var user = {
+        id: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render("index", user);
+    } else {
+      res.render("index");
+    }
+  });
+  app.get("/signup", function (req, res) {
+    if (req.isAuthenticated()) {
+      res.redirect("/accounts/view");
+    } else {
+      res.render("accounts");
+    }
+  });
+
+  // Render 404 page for any unmatched routes
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // });
+};
+
 var db = require("../models");
+
 
 module.exports = function(app) {
   // Load index page
@@ -20,10 +48,5 @@ module.exports = function(app) {
         example: dbCategories
       });
     });
-  });
+  });*/
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
-};
