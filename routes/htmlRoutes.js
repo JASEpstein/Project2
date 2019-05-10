@@ -1,3 +1,4 @@
+
 module.exports = function (app) {
   app.get("/", function (req, res) {
     if (req.isAuthenticated()) {
@@ -24,21 +25,28 @@ module.exports = function (app) {
   // });
 };
 
-// Load index page
-/*app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+var db = require("../models");
+
+
+module.exports = function(app) {
+  // Load index page
+  app.get("/", function(req, res) {
+    db.Category.findAll({}).then(function(dbCategories) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        examples: dbCategories
+      });
+    });
+  });
+
+  // Load example page and pass in an example by id
+  app.get("/category/:id", function(req, res) {
+    db.Category.findOne({ where: { id: req.params.id } }).then(function(
+      dbCategories
+    ) {
+      res.render("category", {
+        example: dbCategories
       });
     });
   });*/
 
-// Load example page and pass in an example by id
-/*app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });*/
