@@ -1,16 +1,14 @@
 <h1>{{title}}</h1>
-{{!-- if there are products in the cart then display information --}}
-{{# if products }}
+{{!-- if there are subscriptions in the cart then display information --}}
+{{# if subscription }}
     <div class="cart page">
         <ul class="list-group">
-            {{!--loop through each product--}}
-            {{# each products }}
+            {{!--loop through each subscription--}}
+            {{# each subscription }}
             <li class="list-group-item clearfix">
                 <div class="col-xs-5">
                     {{!-- item title --}}
                     <strong>{{ this.item.title }}</strong><br/>
-                    {{!-- item description --}}
-                    <em>{{{this.item.description}}}</em>
                 </div>
                 <div class="col-xs-2 text-right">
                     {{!-- item qty --}}
