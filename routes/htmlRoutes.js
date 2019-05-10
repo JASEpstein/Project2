@@ -40,17 +40,7 @@ module.exports = function(app) {
   // Load animeSubscription page
   app.get("/subscription", function(req, res) {
     db.Subscription.findAll({}).then(function(err, dbSubscription) {
-      // if (err) {
-      //   throw err;
-      // } else {
-      //   var subscriptionChunks = [];
-      //   var chunkSize = 4;
-      //   for (var i; i < dbSubscription.length; i += chunkSize) {
-      //     subscriptionChunks.push(dbSubscription.slice(i, i + chunkSize));
-      //   }
-      // }
       res.render("animeSubscription", {
-        // examples: subscriptionChunks
         examples: dbSubscription
       });
     });
@@ -61,6 +51,15 @@ module.exports = function(app) {
     db.Cart.findAll({}).then(function(dbCart) {
       res.render("cart", {
         msg: "Welcome to the Shopping cart!",
+        examples: dbCart
+      });
+    });
+  });
+
+  //cart page
+  app.get("/order", function(req, res) {
+    db.Cart.findAll({}).then(function(dbCart) {
+      res.render("checkout", {
         examples: dbCart
       });
     });
