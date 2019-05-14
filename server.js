@@ -79,10 +79,11 @@ var models = require("./models");
 
 //Routes
 require("./routes/auth")(app, passport);
-require("./routes/htmlRoutes")(app);
+// require("./routes/htmlRoutes")(app);
+// require("./routes/apiRoutes")(app);
 
-//route for cart controller
-require("./controllers/cartController.js")(app);
+// //route for cart controller
+// require("./controllers/cartController.js")(app);
 
 //load passport strategies
 require("./config/passport/passport.js")(passport, models.user);
