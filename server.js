@@ -48,7 +48,11 @@ app.use(express.static("public"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.text());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 // Handlebars
 app.engine(
   "handlebars",
@@ -58,11 +62,17 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+//route for cart controller
+require("./controllers/cartController.js")(app);
 require("./controllers/temp")(app);
 
 //Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/auth")(app, passport);
+
+//Passport File
+require("./config/passport/passport.js")(passport, models.user);
 
 // //for handlebars
 // app.set("views", "./views");
@@ -76,17 +86,6 @@ require("./routes/htmlRoutes")(app);
 
 //Models
 var models = require("./models");
-
-//Routes
-require("./routes/auth")(app, passport);
-// require("./routes/htmlRoutes")(app);
-// require("./routes/apiRoutes")(app);
-
-// //route for cart controller
-// require("./controllers/cartController.js")(app);
-
-//load passport strategies
-require("./config/passport/passport.js")(passport, models.user);
 
 var syncOptions = {
   force: false
