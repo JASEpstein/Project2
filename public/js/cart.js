@@ -1,9 +1,4 @@
-$(document).ready(function() {
-  // Adding event listeners for deleting, editing cart items
-  $(document).on("click", "button.delete", deleteItem);
-  $(document).on("click", "button.cart", getItems);
-  $(document).on("click", "button.add", addItem);
-
+$(document).ready(function () {
   //inital items array
   var items = [];
 
@@ -11,8 +6,8 @@ $(document).ready(function() {
   // getItems();
 
   //adds item
-  $(".cartContainer").on("click", "add", function() {
-    addItem();    
+  $(document).on("click", ".add", function () {
+    addItem();
   });
 
   // //function to reset the items displayed with new items from the db
@@ -27,14 +22,14 @@ $(document).ready(function() {
 
   // This function grabs items from the database and updates the view
   function getItems() {
-    $.get("/api/subscriptions", function(data) {
+    $.get("/api/subscriptions", function (data) {
       subscriptions = data;
       initializeRows();
     });
   }
 
   //function to create card for each item added to the cart
-  function createItemCard (subscription) {
+  function createItemCard(subscription) {
     return $(`<div class="row cart-row">  
     <div class="col-md-3 col-sm-6 cartItem">
       <div class="thumbnail">
@@ -67,18 +62,21 @@ $(document).ready(function() {
         </div>
       </div>
     </div>
-  </div>`
-  );
+  </div>`);
   }
 
-  function addItem(event) {
+  function addItem() {
     $.ajax({
-      method: "GET",
-      url: "/api/subscriptions",
+      method: "POST",
+      url: "/api/cart",
       data: subscriptions
-    }).then(subscriptions);
+    }).then(function (req, res) {
+      console.log(req);
+      console.log(res);
+      // createItemCard(req);
+    });
   }
-  
+
 
   // This function deletes an item when the user clicks the delete button
   function deleteItem(event) {
@@ -90,15 +88,15 @@ $(document).ready(function() {
     }).then(getItems);
   }
 
-    // This function updates an item in our database
-    function updateItem(subscription) {
-      $.ajax({
-        method: "PUT",
-        url: "/api/todos",
-        data: todo
-      }).then(getTodos);
-    }
-  
+  // This function updates an item in our database
+  function updateItem(subscription) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/todos",
+      data: todo
+    }).then(getTodos);
+  }
+
 
 });
 
