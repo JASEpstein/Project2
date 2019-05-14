@@ -1,49 +1,49 @@
 $(".carousel").carousel();
 
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+// // Get references to page elements
+// var $cartText = $("#cart-text");
+// // var $cartDescription = $("#cart-description");
+// var $addBtn = $(".add");
+// var $itemList = $("#item-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveItem: function(subscription) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/subscriptions",
+      data: JSON.stringify(subscriptions)
     });
   },
-  getExamples: function() {
+  getItem: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/subscriptions",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteItem: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/subscriptions/" + id,
       type: "DELETE"
     });
   }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+var refreshItem = function() {
+  API.getItem().then(function(data) {
+    var $cartItems = data.map(function(subscriptions) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(subscriptions.text)
+        .attr("href", "/cart/" + subscriptions.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": subscription.id
         })
         .append($a);
 
@@ -56,8 +56,8 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $itemList.empty();
+    $itemList.append($cartItems);
   });
 };
 
@@ -66,22 +66,23 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var cart = {
+    quantity: $cartText.val().trim()
+    // text: $cartText.val().trim(),
+    // description: $cartDescription.val().trim()
   };
 
   if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+    alert("");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveItems(subscriptions).then(function() {
+    refreshitems();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $cartText.val("");
+  // $cartDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
