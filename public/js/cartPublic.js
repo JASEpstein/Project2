@@ -1,24 +1,29 @@
 $(document).ready(function() {
   // Adding event listeners for deleting, editing cart items
   $(document).on("click", "button.delete", deleteItem);
-  $(document).on("click", "button.update", updateItemQty);
+  $(document).on("click", "button.cart", getItems);
   $(document).on("click", "button.add", addItem);
 
   //inital items array
   var items = [];
 
-  //getting items from Cart on page load
-  getItems();
+  // //getting items from Cart on page load
+  // getItems();
 
-  //function to reset the items displayed with new items from the db
-  function initializeRows() {
-    $itemContainer.empty();
-    var rowsToAdd = [];
-    for (var i = 0; i < todos.length; i++) {
-      rowsToAdd.push(createNewRow(todos[i]));
-    }
-    $todoContainer.prepend(rowsToAdd); 
-  }
+  //adds item
+  $(".cartContainer").on("click", "add", function() {
+    addItem();    
+  });
+
+  // //function to reset the items displayed with new items from the db
+  // function initializeRows() {
+  //   $itemContainer.empty();
+  //   var rowsToAdd = [];
+  //   for (var i = 0; i < todos.length; i++) {
+  //     rowsToAdd.push(createNewRow(todos[i]));
+  //   }
+  //   $todoContainer.prepend(rowsToAdd); 
+  // }
 
   // This function grabs items from the database and updates the view
   function getItems() {
@@ -65,6 +70,15 @@ $(document).ready(function() {
   </div>`
   );
   }
+
+  function addItem(event) {
+    $.ajax({
+      method: "GET",
+      url: "/api/subscriptions",
+      data: subscriptions
+    }).then(subscriptions);
+  }
+  
 
   // This function deletes an item when the user clicks the delete button
   function deleteItem(event) {

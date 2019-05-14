@@ -65,9 +65,9 @@
     </div>
   </div>
 
-  {{#if cartItems}}
+  {{#if Subscriptions}}
    
-  {{#grouped_each 4 cartItems}}
+  {{#grouped_each 4 Subscriptions}}
   <div class="row cart-row">  
     {{#each this}}
     <div class="col-md-3 col-sm-6 product">
@@ -111,7 +111,7 @@
    
   <div class="row">
     <div class="col-md-12">
-    {{#if cartItems}}
+    {{#if Subscriptions}}
       <a href="/order" class="btn btn-primary">Checkout</a>
     {{else}}
       <a href="/" class="btn btn-primary">Shop</a>
