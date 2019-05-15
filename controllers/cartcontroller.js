@@ -30,7 +30,7 @@ function router(app) {
   //==========================================================================
   // CREATE :: add new item to cart
   //==========================================================================
-  app.post("/cart/:id", function (request, response) {
+  app.post("/api/cart/:id", function (request, response) {
     db.Cart.create({
       UserId: request.user.id,
       subscriptionId: request.params.id,
@@ -48,7 +48,7 @@ function router(app) {
   //==========================================================================
   // UPDATE :: update item quantity
   //==========================================================================
-  app.put("/cart/:id", function (request, response) {
+  app.put("/api/cart/:id", function (request, response) {
     db.Cart.update({
         quantity: request.body.quantity
       }, {
@@ -71,7 +71,7 @@ function router(app) {
   //==========================================================================
   // DELETE :: delete item from cart
   //==========================================================================
-  app.delete("/cart/:id", function (request, response) {
+  app.delete("/api/cart/:id", function (request, response) {
     db.Cart.destroy({
       where: {
         UserId: request.user.id,

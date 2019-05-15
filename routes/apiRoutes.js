@@ -26,8 +26,15 @@ module.exports = function(app) {
 
   //---------------------------------
 
-  // Get all cart
+  // Get all carts
   app.get("/api/cart", function(req, res) {
+    db.Cart.findAll({}).then(function(dbCart) {
+      res.json(dbCart);
+    });
+  });
+
+  //Get cart by id
+  app.get("/api/cart/:id", function(req, res) {
     db.Cart.findAll({}).then(function(dbCart) {
       res.json(dbCart);
     });
@@ -64,7 +71,7 @@ module.exports = function(app) {
   });
 
   // Delete a subscription by id
-  app.delete("/api/cart/:id", function(req, res) {
+  app.delete("/api/subscriptions/:id", function(req, res) {
     db.Subscriptions.destroy({ where: { id: req.params.id } }).then(function(
       dbSubscriptions
     ) {

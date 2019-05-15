@@ -4,7 +4,8 @@ module.exports = function(sequelize, DataTypes) {
     {
       quantity: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: null,
         validate: {
           len: [1, 50]
         }
@@ -16,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
           Cart.belongsto(models.subscription, {
             //onDelete: "cascade"
           });
-          Cart.belongsTo(models.User, {
+          Cart.belongsTo(models.user, {
             foreignKey: {
               allowNull: false
             }
