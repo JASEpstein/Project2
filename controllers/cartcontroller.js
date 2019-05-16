@@ -14,7 +14,7 @@ function router(app) {
     })
       .then(function(Subscriptions) {
         response.render("cart", {
-          //Subscriptions,
+          Subscriptions,
           user: request.user
         });
         // response.json(subscription);
