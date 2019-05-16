@@ -1,17 +1,18 @@
-// import { canTreatArrayAsAnd } from "sequelize/types/lib/utils";
-
 $(document).ready(function() {
 
   //inital items array
   var items = [];
 
   //getting items from Cart on page load
-  getItems();
+  $(document).on("click", ".cart", function() {
+    getItems();
+  });
 
   //adding click handler that adds item to the cart
   $(document).on("click", ".add", function() {
+    var id = $(this).data("id");
     console.log("Item has been added to cart!");
-    addItem();   
+    addItem(id);   
   });
 
   //adding click handler that updates item quantity in cart
@@ -22,14 +23,15 @@ $(document).ready(function() {
 
   //adding click handler that item from cart
   $(document).on("click", ".remove", function() {
-    console.log("Item has been added to cart!");
+    console.log("Item has been removed cart!");
     deleteItem();   
   });
 
   // This function grabs items from the database
   function getItems() {
-    $.get("/api/subscription", function(data) {
+    $.get("/cart" + id, function(data) {
       subscriptions = data;
+      createItemCard();
     });
   }
 
@@ -73,15 +75,20 @@ $(document).ready(function() {
   }
 
   //function adds an item to the cart page 
-  function addItem() {
+  function addItem(id) {
+    //ajax request 
     $.ajax({
+      //http method to create 
       method: "POST",
-      url: "/api/cart/:id",
-      contentType: "application/json",
-      data: subscriptions
+      //url for connecting to backend
+      url: "/api/cart/" + id,
+      //contentType: "application/json",
+      data: {quantity: 1}
     }).then(function() {
+      //call function to create item card
       createItemCard();
     }).catch(function(err) {
+      //if error then send message
       console.log(err.message);
       response.send(err);
   });
@@ -90,14 +97,21 @@ $(document).ready(function() {
 
   // This function deletes an item from the cart page
   function deleteItem(event) {
-    event.stopPropagation();
+    //event to prevent propagation of the same event from being called
+    //event.stopPropagation();
+    //declare variable that grab's item id
     var id = $(this).data("id");
+    //ajax request
     $.ajax({
+      //declare http method delete
       method: "DELETE",
+      //url to use to connect to controller
       url: "/api/cart/" + id
     }).then(function(getItems){
+
     res.json(getItems);
     }).catch(function(err) {
+      //if error then send message
     console.log(err.message);
     response.send(err);
     });
@@ -105,14 +119,19 @@ $(document).ready(function() {
 
     // This function updates an item in our database
     function updateItemQty(subscription) {
+      //ajax group 
       $.ajax({
+        //http method to update
         method: "PUT",
+        //api url to connect to backend
         url: "/api/cart",
-        quantity: +1
+        //set quantity to the amount user requested
+        data: {quantity: request.body.id}
       }).then(function(getItems) {
-      createItemCard();
+      //createItemCard();
       res.json(getItems);
       }).catch(function(err) {
+        //if error then send message
       console.log(err.message);
       response.send(err);
       });

@@ -24,58 +24,58 @@ module.exports = function(app) {
     });
   });
 
-  //---------------------------------
+  // //---------------------------------
 
-  // Get all carts
-  app.get("/api/cart", function(req, res) {
-    db.Cart.findAll({}).then(function(dbCart) {
-      res.json(dbCart);
-    });
-  });
+  // // Get all carts
+  // app.get("/api/cart", function(req, res) {
+  //   db.Cart.findAll({}).then(function(dbCart) {
+  //     res.json(dbCart);
+  //   });
+  // });
 
-  //Get cart by id
-  app.get("/api/cart/:id", function(req, res) {
-    db.Cart.findAll({}).then(function(dbCart) {
-      res.json(dbCart);
-    });
-  });
+  // //Get cart by id
+  // app.get("/api/cart/:id", function(req, res) {
+  //   db.Cart.findAll({}).then(function(dbCart) {
+  //     res.json(dbCart);
+  //   });
+  // });
 
-  // Create a new cart
-  app.post("/api/cart", function(req, res) {
-    db.Cart.create(req.body).then(function(dbCart) {
-      res.json(dbCart);
-    });
-  });
+  // // Create a new cart
+  // app.post("/api/cart", function(req, res) {
+  //   db.Cart.create(req.body).then(function(dbCart) {
+  //     res.json(dbCart);
+  //   });
+  // });
 
-  // Delete an cart by id
-  app.delete("/api/cart/:id", function(req, res) {
-    db.Cart.destroy({ where: { id: req.params.id } }).then(function(dbCart) {
-      res.json(dbCart);
-    });
-  });
+  // // Delete an cart by id
+  // app.delete("/api/cart/:id", function(req, res) {
+  //   db.Cart.destroy({ where: { id: req.params.id } }).then(function(dbCart) {
+  //     res.json(dbCart);
+  //   });
+  // });
 
-  //--------------------------------
+  // //--------------------------------
 
-  // Get all subscriptions
-  app.get("/api/subscriptions", function(req, res) {
-    db.Subscriptions.findAll({}).then(function(dbSubscriptions) {
-      res.json(dbSubscriptions);
-    });
-  });
+  // // Get all subscriptions
+  // app.get("/api/subscriptions", function(req, res) {
+  //   db.Subscriptions.findAll({}).then(function(dbSubscriptions) {
+  //     res.json(dbSubscriptions);
+  //   });
+  // });
 
-  // Create a new subscription
-  app.post("/api/subscriptions", function(req, res) {
-    db.Subscriptions.create(req.body).then(function(dbSubscriptions) {
-      res.json(dbSubscriptions);
-    });
-  });
+  // // Create a new subscription
+  // app.post("/api/subscriptions", function(req, res) {
+  //   db.Subscriptions.create(req.body).then(function(dbSubscriptions) {
+  //     res.json(dbSubscriptions);
+  //   });
+  // });
 
-  // Delete a subscription by id
-  app.delete("/api/subscriptions/:id", function(req, res) {
-    db.Subscriptions.destroy({ where: { id: req.params.id } }).then(function(
-      dbSubscriptions
-    ) {
-      res.json(dbSubscriptions);
-    });
-  });
+  // // Delete a subscription by id
+  // app.delete("/api/subscriptions/:id", function(req, res) {
+  //   db.Subscriptions.destroy({ where: { id: req.params.id } }).then(function(
+  //     dbSubscriptions
+  //   ) {
+  //     res.json(dbSubscriptions);
+  //   });
+  // });
 };

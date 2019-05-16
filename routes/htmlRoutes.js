@@ -47,14 +47,14 @@ module.exports = function(app) {
   });
 
   //cart page
-  app.get("/cart", function(req, res) {
-    db.Cart.findAll({}).then(function(dbCart) {
-      res.render("cart", {
-        msg: "Welcome to the Shopping cart!",
-        examples: dbCart
-      });
-    });
-  });
+  // app.get("/cart", function(req, res) {
+  //   db.Cart.findAll({}).then(function(dbCart) {
+  //     res.render("cart", {
+  //       msg: "Welcome to the Shopping cart!",
+  //       examples: dbCart
+  //     });
+  //   });
+  // });
 
   //cart page
   app.get("/order", function(req, res) {
