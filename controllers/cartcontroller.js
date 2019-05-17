@@ -7,6 +7,7 @@ function router(app) {
   //==========================================================================
   app.get("/cart", function(request, response) {
     db.Cart.findAll({
+      //car at user id :: user must be logged in for cart to work
       where: {
         UserId: request.user.id
       }
@@ -14,7 +15,7 @@ function router(app) {
     })
       .then(function(Subscriptions) {
         response.render("cart", {
-          Subscriptions,
+          Subscriptions: Subscriptions,
           user: request.user
         });
         // response.json(subscription);
@@ -40,10 +41,10 @@ function router(app) {
       subscriptionId: request.params.id,
       quantity: request.body.quantity // TODO
     })
-      .then(function(addedItem) {
-        // response.json(addedItem);
+      .then(function(Subscriptions) {
+        response.json(Subscriptions);
         //once cart is created render the item to cart page
-        response.redirect("/cart");
+        //response.redirect("/cart");
       })
       .catch(function(err) {
         //if error then show message
@@ -66,14 +67,14 @@ function router(app) {
         where: {
           UserId: request.user.id,
           subscriptionId: request.params.subscriptionId
-        },
-        include: [db.subscription]
+        }
+        //include: [db.subscription]
       }
     )
-      .then(function(subscription) {
-        // response.json(subscription);
+      .then(function(Subscriptions) {
+        response.json(Subscriptions);
         //redirect back to the cart page after done
-        response.redirect("/cart");
+        //response.redirect("/cart");
       })
       .catch(function(err) {
         //if error then show message
@@ -93,9 +94,10 @@ function router(app) {
         id: request.params.id
       }
     })
-      .then(function() {
+      .then(function(Subscriptions) {
+        response.json(Subscriptions);
         //redirect to the cart page once done
-        response.redirect("/cart");
+        //response.redirect("/cart");
       })
       .catch(function(err) {
         //if error then show message

@@ -72,7 +72,7 @@
   {{!-- {{#grouped_each 4 Subscriptions}} --}}
   <div class="container cartContainer">
   <div class="row cart-row">  
-    {{#each this}}
+    {{#each Subscriptions}}
     <div class="col-md-3 col-sm-6 product">
       <div class="thumbnail">
         <img src="{{Subscriptions.img}}" alt="{{Subscriptions.name}}">
@@ -86,9 +86,9 @@
               <label for="quantity">Qty</label>
               <select class="form-control product-dropdown" id="quantity" name="quantity">
                 <option selected>{{quantity}}</option>
-                <option>1</option>
                 <option>2</option>
                 <option>3</option>
+                <option>4</option>
               </select>
               <button class="btn btn-default noPad update" type="submit" value="Submit">Update Quantity</button>
             </div>
