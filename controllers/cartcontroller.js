@@ -73,13 +73,15 @@ function router(app) {
       {
         //in the cart with the user id and subscription id
         where: {
-          UserId: request.user.id,
-          subscriptionId: request.params.id
+          // UserId: request.user.id,
+          //subscriptionId: request.params.id
+          id: request.params.id
         }
         //include: [db.subscription]
       }
     )
       .then(function(Subscriptions) {
+        console.log(Subscriptions);
         response.json(Subscriptions);
         //redirect back to the cart page after done
         //response.redirect("/cart");

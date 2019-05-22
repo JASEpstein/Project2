@@ -17,9 +17,10 @@ $(document).ready(function() {
   //adding click handler that updates item quantity in cart
   $(document).on("click", ".update", function() {
     event.preventDefault();
+    var quantity = $(this).data("quantity");
     var id = $(this).data("id");
     console.log("Item quantity has been updated!");
-    updateItemQty(id);
+    updateItemQty(quantity, id);
   });
 
   //adding click handler that item from cart
@@ -125,7 +126,7 @@ $(document).ready(function() {
   }
 
   // This function updates an item in our database
-  function updateItemQty(subscription, id) {
+  function updateItemQty(quantity, id) {
     //ajax group
     $.ajax({
       //http method to update
@@ -133,7 +134,7 @@ $(document).ready(function() {
       //api url to connect to backend
       url: "/api/cart" +id,
       //set quantity to the amount user requested
-      data: { quantity: request.body.id }
+      data: quantity
     })
       .then(function() {
         //createItemCard();
