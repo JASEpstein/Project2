@@ -73,19 +73,20 @@
   <div class="container cartContainer">
   <div class="row cart-row">  
     {{#each Subscriptions}}
+    <script>{{{ this }}}</script>
     <div class="col-md-3 col-sm-6 product">
       <div class="thumbnail">
-        <img src="{{Subscriptions.img}}" alt="{{Subscriptions.name}}">
+        <img src="{{this.img}}" alt="{{this.name}}">
         </a>
         <div class="caption">
-          <h3>{{Subscription.name}}</h3>
-          <p class="price">${{Subscriptions.price}}</p>
-          <form method="POST" action="/cart/{{Subscriptions.id}}/?_method=PUT">
-            <input type="hidden" value={{Subscriptions.id}} name="itemId">
+          <h3>{{this.name}}</h3>
+          <p class="price">${{this.price}}</p>
+          <form method="POST" action="/cart/{{this.id}}/?_method=PUT">
+            <input type="hidden" value={{this.id}} name="itemId">
             <div class="form-group">
               <label for="quantity">Qty</label>
               <select class="form-control product-dropdown" id="quantity" name="quantity">
-                <option selected>{{quantity}}</option>
+                <option selected>{{this.quantity}}</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
@@ -93,12 +94,12 @@
               <button class="btn btn-default noPad update" type="submit" value="Submit">Update Quantity</button>
             </div>
           </form>
-          <form method="POST" action="/cart/{{id}}?_method=DELETE">
+          <form method="DELETE" action="/cart/{{this.id}}?_method=DELETE">
             <div class="form-group">
               <div class="btn-group"> 
                 <button class="btn btn-danger remove" type="submit" value="Submit">Remove</button>
               </div>
-              <input type="hidden" value={{quantity}} name="quantity">
+              <input type="hidden" value={{this.quantity}} name="quantity">
             </div>
           </form>
         </div>

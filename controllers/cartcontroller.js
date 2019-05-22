@@ -5,13 +5,21 @@ function router(app) {
   //==========================================================================
   // READ :: show cart by user id
   //==========================================================================
+  /*
+      importCache:
+      { 'C:\\Users\\Lisa Vo\\Project2\\models\\cart.js': Cart,
+        'C:\\Users\\Lisa Vo\\Project2\\models\\category.js': Category,
+        'C:\\Users\\Lisa Vo\\Project2\\models\\subscription.js': Subscription,
+        'C:\\Users\\Lisa Vo\\Project2\\models\\user.js': user } },
+  */
   app.get("/cart", function(request, response) {
+    console.log(db);
     db.Cart.findAll({
       //car at user id :: user must be logged in for cart to work
       where: {
         UserId: request.user.id
       }
-      //include: [db.Subscriptions]
+      // include: [{ model: db.Subscription }]
     })
       .then(function(Subscriptions) {
         response.render("cart", {
@@ -39,7 +47,7 @@ function router(app) {
       //create cart
       UserId: request.user.id,
       subscriptionId: request.params.id,
-      quantity: request.body.quantity // TODO
+      quantity: request.body.quantity
     })
       .then(function(Subscriptions) {
         response.json(Subscriptions);
@@ -63,10 +71,10 @@ function router(app) {
         quantity: request.body.quantity
       },
       {
-        //in the cart with the user id and sybscription id
+        //in the cart with the user id and subscription id
         where: {
           UserId: request.user.id,
-          subscriptionId: request.params.subscriptionId
+          subscriptionId: request.params.id
         }
         //include: [db.subscription]
       }
@@ -87,11 +95,14 @@ function router(app) {
   // DELETE :: delete item from cart
   //==========================================================================
   app.delete("/api/cart/:id", function(request, response) {
-    db.Cart.destroy({
-      //destroy cart at user id and item id selected
+    //console.log(db);
+    var item = "id = " + request.params.id;
+    console.log("item" + item);
+    db.Cart.destroy(item, {
+      //destroy cart item at id selected
       where: {
-        UserId: request.user.id,
-        id: request.params.id
+        // UserId: request.user.id,
+        id: item
       }
     })
       .then(function(Subscriptions) {

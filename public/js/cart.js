@@ -10,22 +10,24 @@ $(document).ready(function() {
   //adding click handler that adds item to the cart
   $(document).on("click", ".add", function() {
     var id = $(this).data("id");
-    console.log("Item has been added to cart!");
+    alert("Item has been added to cart!");
     addItem(id);
   });
 
   //adding click handler that updates item quantity in cart
   $(document).on("click", ".update", function() {
+    event.preventDefault();
     var id = $(this).data("id");
     console.log("Item quantity has been updated!");
-    updateItemQty();
+    updateItemQty(id);
   });
 
   //adding click handler that item from cart
   $(document).on("click", ".remove", function() {
+    event.preventDefault();
     var id = $(this).data("id");
     console.log("Item has been removed cart!");
-    deleteItem();
+    deleteItem(id);
   });
 
   // This function grabs items from the database
@@ -58,7 +60,7 @@ $(document).ready(function() {
                     <option>3</option>
                     <option>4</option>
                   </select>
-                  <button class="btn btn-default noPad" type="submit" value="Submit">Update Quantity</button>
+                  <button class="btn btn-default noPad update" type="submit" value="Submit">Update Quantity</button>
                 </div>
               </form>
               <form method="POST" action="/cart/id?_method=DELETE">
@@ -111,8 +113,9 @@ $(document).ready(function() {
       //url to use to connect to controller
       url: "/api/cart/" + id
     })
-      .then(function(getItems) {
-        res.json(getItems);
+      .then(function(Subscriptions) {
+        res.json(Subscriptions);
+        location.reload();
       })
       .catch(function(err) {
         //if error then send message
@@ -128,13 +131,13 @@ $(document).ready(function() {
       //http method to update
       method: "PUT",
       //api url to connect to backend
-      url: "/api/cart",
+      url: "/api/cart" +id,
       //set quantity to the amount user requested
       data: { quantity: request.body.id }
     })
-      .then(function(getItems) {
+      .then(function() {
         //createItemCard();
-        res.json(getItems);
+        res.json();
       })
       .catch(function(err) {
         //if error then send message
