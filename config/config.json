@@ -1,9 +1,7 @@
 {
   "development": {
     "username": "root",
-
-    "password": "Kicker16!",
-
+    "password": "",
     "database": "nerdbox_db",
     "host": "localhost",
     "dialect": "mysql"

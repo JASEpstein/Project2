@@ -20,6 +20,10 @@
           <li class="nav-item active">
             <a class="nav-link pl-0" href="/">Home <span class="sr-only">Home</span></a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link pl-0" href="/signup">Signup <span class="sr-only">Signup</span></a>
+          </li>
+
         </ul>
       </div>
       <a href="/" class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25"><img
@@ -29,11 +33,10 @@
           <li class="nav-item">
             <a class="nav-link mr-3" href="/signin" id="signin" value="Sign In">Log In</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link mr-3" href="/signup" id="signup" value="Sign Up">Sign Up</a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"
-                style="font-size: 30px;"></i><span class="badge badge-pill badge-warning">{{session.cart.totalQuantity}}</span></a>
+          <li class="nav-item"><a class="nav-link cart" href="/cart"><i class="fas fa-shopping-cart"
+                style="font-size: 30px;"></i><span
+                class="badge badge-pill badge-warning">{{session.cart.totalQuantity}}</span></a>
+
           </li>
 
         </ul>
@@ -84,11 +87,12 @@
   </footer>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.js'></script>
+  {{!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.js'></script> --}}
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js'></script>
 
   <script src="/js/index.js"></script>
-  <script src="/js/home.js"></script>
+  {{!-- <script src="/js/home.js"></script> --}}
+  <script src="/js/cart.js"></script>
 </body>
 
 </html>
