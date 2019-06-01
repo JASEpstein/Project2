@@ -15,8 +15,8 @@ they like based on various categories. The user can then checkout as normal.
 - Bootstrap
 
 ## Contributors:
-1) Zach Matthews
-2) Colby Cooke
-3) Lisa Vo
-4) Jamie Epstein
+1) [Zach Matthews](https://github.com/zmatthews33)
+2) [Colby Cooke](https://github.com/cookecn)
+3) [Lisa Vo](https://github.com/thuyngavo)
+4) [Jamie Epstein](https://github.com/JASEpstein)
 
