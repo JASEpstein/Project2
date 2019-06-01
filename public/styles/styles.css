@@ -59,6 +59,7 @@ body {
 .btn {
   background-color: #6a14cc;
   border-color: #6a14cc;
+  color: white;
 }
 
 .btn:hover {
