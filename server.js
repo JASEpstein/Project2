@@ -86,7 +86,7 @@ require("./routes/auth")(app, passport);
 require("./routes/htmlRoutes")(app);
 
 //route for cart controller
-require("./controllers/cartController.js")(app);
+require("./controllers/cartcontroller.js")(app);
 
 //load passport strategies
 require("./config/passport/passport.js")(passport, models.user);
