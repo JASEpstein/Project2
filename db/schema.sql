@@ -47,7 +47,7 @@ IF NOT EXISTS accounts
 
 --creates cart table 
 CREATE TABLE
-IF NOT EXISTS cart
+IF NOT EXISTS carts
 (
     id INT AUTO_INCREMENT NOT NULL,
    UserID INT (10) NOT NULL,
